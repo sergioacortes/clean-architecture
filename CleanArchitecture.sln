@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6A44E02A-2682-4D7C-8CF3-4A6AEE88B362}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Client.Host", "src\CleanArchitecture.Orders.Client.Host\CleanArchitecture.Orders.Client.Host.csproj", "{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.- Presentation", "1.- Presentation", "{5297FFF6-0221-4A4B-B593-E91A917C03E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.- Domain", "3.- Domain", "{0F1530FA-D45F-4CC9-BE01-E64560F4B5FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.- Infrastructure", "4.- Infrastructure", "{D923C21F-27FD-4B5E-8AFA-C9DCA86B14F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.- Application", "2.- Application", "{E25D9BA1-75E6-4A13-A19D-3DD3973FE72B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Domain", "src\CleanArchitecture.Orders.Domain\CleanArchitecture.Orders.Domain.csproj", "{126F5CC0-3678-4050-B949-857F518CE935}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Infrastructure", "src\CleanArchitecture.Orders.Infrastructure\CleanArchitecture.Orders.Infrastructure.csproj", "{6773E9BB-C151-4D18-AE12-42C68AE197B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Application", "src\CleanArchitecture.Orders.Application\CleanArchitecture.Orders.Application.csproj", "{4C86E7E6-D184-4C96-9448-89F91A81078A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{575A5B4C-7231-4A11-A7AB-3B8A40EE5049}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5297FFF6-0221-4A4B-B593-E91A917C03E6} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
+		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19} = {5297FFF6-0221-4A4B-B593-E91A917C03E6}
+		{0F1530FA-D45F-4CC9-BE01-E64560F4B5FD} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
+		{D923C21F-27FD-4B5E-8AFA-C9DCA86B14F1} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
+		{E25D9BA1-75E6-4A13-A19D-3DD3973FE72B} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
+		{126F5CC0-3678-4050-B949-857F518CE935} = {0F1530FA-D45F-4CC9-BE01-E64560F4B5FD}
+		{6773E9BB-C151-4D18-AE12-42C68AE197B8} = {D923C21F-27FD-4B5E-8AFA-C9DCA86B14F1}
+		{4C86E7E6-D184-4C96-9448-89F91A81078A} = {E25D9BA1-75E6-4A13-A19D-3DD3973FE72B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126F5CC0-3678-4050-B949-857F518CE935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126F5CC0-3678-4050-B949-857F518CE935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126F5CC0-3678-4050-B949-857F518CE935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126F5CC0-3678-4050-B949-857F518CE935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6773E9BB-C151-4D18-AE12-42C68AE197B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6773E9BB-C151-4D18-AE12-42C68AE197B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6773E9BB-C151-4D18-AE12-42C68AE197B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6773E9BB-C151-4D18-AE12-42C68AE197B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C86E7E6-D184-4C96-9448-89F91A81078A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C86E7E6-D184-4C96-9448-89F91A81078A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C86E7E6-D184-4C96-9448-89F91A81078A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C86E7E6-D184-4C96-9448-89F91A81078A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
