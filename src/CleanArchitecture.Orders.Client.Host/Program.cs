@@ -1,4 +1,6 @@
+using CleanArchitecture.Orders.Application.Extensions;
 using CleanArchitecture.Orders.Client.Host.Components;
+using CleanArchitecture.Orders.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services
+    .AddInfrastructure(builder.Configuration)
+    .AddApplication();
 
 var app = builder.Build();
 

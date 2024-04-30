@@ -1,7 +1,15 @@
 ﻿@page "/"
+@using CleanArchitecture.Orders.Application.Services
+
+@inject ApplicationService applicationService
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>
+    Hello, world!
+    <br />
+    @applicationService.GetSeconds()   
+</h1>
 
 Welcome to your new app.
+
