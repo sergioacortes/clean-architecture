@@ -1,7 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-    
-    <ItemGroup>
-      <ProjectReference Include="..\CleanArchitecture.Orders.Application\CleanArchitecture.Orders.Application.csproj" />
-    </ItemGroup>
-    
-</Project>

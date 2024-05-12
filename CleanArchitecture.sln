@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DBC4FACA-4F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6A44E02A-2682-4D7C-8CF3-4A6AEE88B362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Client.Host", "src\CleanArchitecture.Orders.Client.Host\CleanArchitecture.Orders.Client.Host.csproj", "{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Host", "src\CleanArchitecture.Orders.Host\CleanArchitecture.Orders.Host.csproj", "{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.- Presentation", "1.- Presentation", "{5297FFF6-0221-4A4B-B593-E91A917C03E6}"
 EndProject

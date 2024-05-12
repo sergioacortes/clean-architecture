@@ -9,16 +9,6 @@ public static class InfrastructureExtensions
 
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        
-        /*
-        
-        var options = configuration
-            .GetSection(ConfigurationOptions.SectionName)
-            .Get<ConfigurationOptions>();
-
-        services.AddScoped<ConfigurationOptions>(x => options);
-        
-        */
 
         services
             .Configure<ConfigurationOptions>(
