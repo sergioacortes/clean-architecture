@@ -1,0 +1,6 @@
+@CleanArchitecture.Api.Host_HostAddress = http://localhost:5191
+
+POST {{CleanArchitecture.Api.Host_HostAddress}}/companies/
+Accept: application/json
+
+###
