@@ -17,4 +17,6 @@ public interface IDomainRepository<TEntity, in TKey> where TEntity : DomainEntit
     
     Task DeleteAsync(TKey id, CancellationToken cancellationToken);
     
+    Task SaveChangesAsync(CancellationToken cancellationToken);
+    
 }

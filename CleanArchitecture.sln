@@ -4,9 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DBC4FACA-4F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6A44E02A-2682-4D7C-8CF3-4A6AEE88B362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Host", "src\CleanArchitecture.Orders.Host\CleanArchitecture.Orders.Host.csproj", "{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.- Presentation", "1.- Presentation", "{5297FFF6-0221-4A4B-B593-E91A917C03E6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.- Distributed services", "1.- Distributed services", "{5297FFF6-0221-4A4B-B593-E91A917C03E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.- Domain", "3.- Domain", "{0F1530FA-D45F-4CC9-BE01-E64560F4B5FD}"
 EndProject
@@ -14,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.- Infrastructure", "4.- I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.- Application", "2.- Application", "{E25D9BA1-75E6-4A13-A19D-3DD3973FE72B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Domain", "src\CleanArchitecture.Orders.Domain\CleanArchitecture.Orders.Domain.csproj", "{126F5CC0-3678-4050-B949-857F518CE935}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", "src\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{126F5CC0-3678-4050-B949-857F518CE935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Infrastructure", "src\CleanArchitecture.Orders.Infrastructure\CleanArchitecture.Orders.Infrastructure.csproj", "{6773E9BB-C151-4D18-AE12-42C68AE197B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infrastructure", "src\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj", "{6773E9BB-C151-4D18-AE12-42C68AE197B8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Application", "src\CleanArchitecture.Orders.Application\CleanArchitecture.Orders.Application.csproj", "{4C86E7E6-D184-4C96-9448-89F91A81078A}"
 EndProject
@@ -28,7 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{575A5B4C
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Infrastructure.SqlServer", "src\CleanArchitecture.Orders.Infrastructure.SqlServer\CleanArchitecture.Orders.Infrastructure.SqlServer.csproj", "{C7DFDE14-38F3-4CBD-AE56-4687EBB3668E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infrastructure.SqlServer", "src\CleanArchitecture.Infrastructure.SqlServer\CleanArchitecture.Infrastructure.SqlServer.csproj", "{C7DFDE14-38F3-4CBD-AE56-4687EBB3668E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Api.Host", "src\CleanArchitecture.Api.Host\CleanArchitecture.Api.Host.csproj", "{FD5F9AA1-53F0-4A7F-A066-C00BB3E1A637}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,7 +37,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5297FFF6-0221-4A4B-B593-E91A917C03E6} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
-		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19} = {5297FFF6-0221-4A4B-B593-E91A917C03E6}
 		{0F1530FA-D45F-4CC9-BE01-E64560F4B5FD} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
 		{D923C21F-27FD-4B5E-8AFA-C9DCA86B14F1} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
 		{E25D9BA1-75E6-4A13-A19D-3DD3973FE72B} = {DBC4FACA-4F80-48F7-9FA5-35C4DD87DA03}
@@ -45,12 +44,9 @@ Global
 		{6773E9BB-C151-4D18-AE12-42C68AE197B8} = {D923C21F-27FD-4B5E-8AFA-C9DCA86B14F1}
 		{4C86E7E6-D184-4C96-9448-89F91A81078A} = {E25D9BA1-75E6-4A13-A19D-3DD3973FE72B}
 		{C7DFDE14-38F3-4CBD-AE56-4687EBB3668E} = {D923C21F-27FD-4B5E-8AFA-C9DCA86B14F1}
+		{FD5F9AA1-53F0-4A7F-A066-C00BB3E1A637} = {5297FFF6-0221-4A4B-B593-E91A917C03E6}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC94C3E7-A561-4C5A-AE3D-CF1C57ABEC19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{126F5CC0-3678-4050-B949-857F518CE935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{126F5CC0-3678-4050-B949-857F518CE935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{126F5CC0-3678-4050-B949-857F518CE935}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,5 +63,9 @@ Global
 		{C7DFDE14-38F3-4CBD-AE56-4687EBB3668E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7DFDE14-38F3-4CBD-AE56-4687EBB3668E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7DFDE14-38F3-4CBD-AE56-4687EBB3668E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD5F9AA1-53F0-4A7F-A066-C00BB3E1A637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD5F9AA1-53F0-4A7F-A066-C00BB3E1A637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD5F9AA1-53F0-4A7F-A066-C00BB3E1A637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD5F9AA1-53F0-4A7F-A066-C00BB3E1A637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

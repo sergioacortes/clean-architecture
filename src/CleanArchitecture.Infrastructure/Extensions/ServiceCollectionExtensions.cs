@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitecture.Orders.Infrastructure.Extensions;
 
-public static class InfrastructureExtensions
+public static class ServiceCollectionExtensions
 {
 
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)

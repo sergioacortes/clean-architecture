@@ -56,7 +56,12 @@ public abstract class BaseRepository<TEntity, TKey>(DbContext context) : IDomain
         GetDbSet().Remove(entity);
         
     }
-    
+
+    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    {
+        await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+    }
+
     private DbSet<TEntity> GetDbSet() => context.Set<TEntity>();
     
 }

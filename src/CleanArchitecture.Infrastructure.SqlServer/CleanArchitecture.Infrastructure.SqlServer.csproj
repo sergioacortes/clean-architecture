@@ -4,6 +4,7 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>CleanArchitecture.Orders.Infrastructure.SqlServer</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CleanArchitecture.Orders.Domain\CleanArchitecture.Orders.Domain.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj" />
     </ItemGroup>
 
 </Project>

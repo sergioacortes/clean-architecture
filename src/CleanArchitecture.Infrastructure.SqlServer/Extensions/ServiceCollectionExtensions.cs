@@ -1,4 +1,6 @@
-﻿using CleanArchitecture.Orders.Infrastructure.SqlServer.DbContexts;
+﻿using CleanArchitecture.Orders.Domain.Companies.Repositories;
+using CleanArchitecture.Orders.Infrastructure.SqlServer.Companies.Repositories;
+using CleanArchitecture.Orders.Infrastructure.SqlServer.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +18,8 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<SystemDbContext>(opts => 
             opts.UseSqlServer(systemConnectionStrng)
         );
+
+        services.AddScoped<ICompaniesRepository, CompaniesRepository>();
         
         return services;
         

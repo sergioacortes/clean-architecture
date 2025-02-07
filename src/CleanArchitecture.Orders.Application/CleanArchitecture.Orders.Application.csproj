@@ -1,7 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     
     <ItemGroup>
-      <ProjectReference Include="..\CleanArchitecture.Orders.Infrastructure\CleanArchitecture.Orders.Infrastructure.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Infrastructure.SqlServer\CleanArchitecture.Infrastructure.SqlServer.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.4.1" />
     </ItemGroup>
 
 </Project>
