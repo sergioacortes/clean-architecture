@@ -2,14 +2,12 @@
 using CleanArchitecture.Orders.Infrastructure.SqlServer.DbContexts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace CleanArchitecture.Api.Host.Integration.Tests;
 
-public class ApiFixture : WebApplicationFactory<Program>, IAsyncLifetime
+public class WebApplicationFixture : WebApplicationFactory<Program>, IAsyncLifetime
 {
 
     private readonly SqlServerContainer _sqlServerContainer = new();

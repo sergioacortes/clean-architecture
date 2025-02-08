@@ -6,8 +6,8 @@ using Xunit;
 
 namespace CleanArchitecture.Api.Host.Integration.Tests.UseCases.Companies;
 
-[Collection(nameof(SqlServerContainer.FixtureName))]
-public class CreateCompanyHandlerTests(ApiFixture fixture) : IClassFixture<ApiFixture>
+[Collection(nameof(WebApplicationFixture))]
+public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFixture<WebApplicationFixture>
 {
 
     [Fact]
