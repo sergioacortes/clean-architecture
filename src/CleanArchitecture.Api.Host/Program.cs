@@ -25,14 +25,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/companies", async ([FromServices]ICompaniesRepository companiesRepository) =>
+app.MapGet("/api/companies", async ([FromServices]ICompaniesRepository companiesRepository) =>
     {
         var companies = await companiesRepository.GetAllAsync(CancellationToken.None).ConfigureAwait(false);
         return companies;
     })
     .WithName("CompanyGetAll");
 
-app.MapPost("/companies", async ([FromServices]IMediator mediator, [FromBody]CreateCompanyRequest request) =>
+app.MapPost("/api/companies", async ([FromServices]IMediator mediator, [FromBody]CreateCompanyRequest request) =>
     {
         var response = await mediator.Send(request);
         return response;
@@ -40,3 +40,13 @@ app.MapPost("/companies", async ([FromServices]IMediator mediator, [FromBody]Cre
     .WithName("CompanyCreate");
 
 await app.RunAsync();
+
+namespace CleanArchitecture.Api.Host
+{
+    public class Program
+    {
+        protected Program()
+        {
+        }
+    }
+}
