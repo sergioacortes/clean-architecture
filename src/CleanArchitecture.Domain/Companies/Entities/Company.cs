@@ -16,9 +16,9 @@ public class Company : DomainEntity<Guid>
     public static Company Create(string tradeName)
     {
         
-        if (string.IsNullOrWhiteSpace(tradeName))
+        if (string.IsNullOrEmpty(tradeName))
         {
-            throw new ArgumentException("Trade name cannot be null or empty");
+            throw new ArgumentNullException(nameof(tradeName), $"Parameter {nameof(tradeName)} cannot be null or empty");
         }
         
         return new Company(tradeName);
