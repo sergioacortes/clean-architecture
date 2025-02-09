@@ -17,7 +17,7 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
         await fixture.ExecuteTestOnIsolatedContext(async () =>
         {
             var httpClient = fixture.CreateClient();
-            var createCompanyRequest = new CreateCompanyRequest("Test Company");
+            var createCompanyRequest = new CreateCompanyRequest("TenantId", "Test Company");
             var httpRequest = await httpClient.PostAsJsonAsync("api/companies", createCompanyRequest);
 
             httpRequest.IsSuccessStatusCode.Should().BeTrue();
@@ -26,6 +26,8 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
 
             company.Should().NotBeNull();
             company.Id.Should().NotBeEmpty();
+            company.TenantId.Should().NotBeEmpty();
+            company.TenantId.Should().Be(createCompanyRequest.TenantId);
             company.TradeName.Should().NotBeEmpty();
             company.TradeName.Should().Be(createCompanyRequest.TradeName);
 

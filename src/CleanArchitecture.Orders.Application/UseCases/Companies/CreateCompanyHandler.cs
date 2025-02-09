@@ -8,9 +8,9 @@ public class CreateCompanyHandler(ICompaniesRepository companiesRepository) : IR
 {
     public async Task<CreateCompanyResponse> Handle(CreateCompanyRequest request, CancellationToken cancellationToken)
     {
-        var company = Company.Create(request.TradeName);
+        var company = Company.Create(request.TenantId, request.TradeName);
         await companiesRepository.AddAsync(company, cancellationToken);
         await companiesRepository.SaveChangesAsync(cancellationToken);
-        return new CreateCompanyResponse(company.Id, company.TradeName); 
+        return new CreateCompanyResponse(company.Id, company.TenantId, company.TradeName); 
     }
 }
