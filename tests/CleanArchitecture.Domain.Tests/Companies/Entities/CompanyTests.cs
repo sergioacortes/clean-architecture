@@ -6,21 +6,24 @@ namespace CleanArchitecture.Domain.Tests.Companies.Entities;
 
 public class CompanyTests
 {
-    [Fact]
-    public void Null_Company_Name_Should_Not_Be_Able_To_Create_Company()
+
+    [Theory]
+    [InlineData("", ""),
+     InlineData(null, ""),
+     InlineData("", null),
+     InlineData(null, null)]
+    public void Company_Should_Not_Be_Able_To_Created(string tenantId, string companyName)
     {
-
-        var companyName = string.Empty;
-
-        Assert.Throws<ArgumentNullException>(() => Company.Create(string.Empty));
+        Assert.Throws<ArgumentNullException>(() => Company.Create(tenantId, companyName));
     }
     
     [Fact]
     public void Company_Name_Should_Be_Able_To_Create_Company()
     {
 
+        var tenantId = "TenantId";
         var companyName = "Company trade name";
-        var company = Company.Create(companyName);
+        var company = Company.Create(tenantId, companyName);
         
         company.TradeName.Should().Be(companyName);
     }
