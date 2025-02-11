@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using CleanArchitecture.Orders.Domain.Databases.Entities;
+using FluentAssertions;
+using Xunit;
 
 namespace CleanArchitecture.Domain.Tests.Databases.Entities;
 
@@ -12,7 +14,7 @@ public class DatabaseTests
         var database = Database.Create(databaseName);
 
         database.Should().NotBeNull();
-        database.Name.Should().Be(databaseName);
+        database.DatabaseName.Should().Be(databaseName);
         database.IsActive.Should().BeTrue();
 
     }
