@@ -1,5 +1,4 @@
-﻿using CleanArchitecture.Orders.Infrastructure.SqlServer.EntityTypeConfigurations.Companies;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Orders.Infrastructure.SqlServer.DbContexts;
 
@@ -8,7 +7,7 @@ public class SystemDbContext(DbContextOptions<SystemDbContext> options) : DbCont
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("system");
-        modelBuilder.ApplyConfiguration(new CompanyEntityTypeConfiguration());
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(SystemDbContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }

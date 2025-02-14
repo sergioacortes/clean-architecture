@@ -1,4 +1,7 @@
-﻿using Xunit;
+﻿using System.Net.Http.Json;
+using CleanArchitecture.Orders.Application.UseCases.Databases.RegisterDatabase;
+using FluentAssertions;
+using Xunit;
 
 namespace CleanArchitecture.Api.Host.Integration.Tests.UseCases.Databases;
 
@@ -14,7 +17,7 @@ public class RegisterDatabaseHandlerTests(WebApplicationFixture fixture) : IClas
         {
             var httpClient = fixture.CreateClient();
             var registerDatabaseRequest = new RegisterDatabaseRequest("(local)", "CompaniesDb", "admin", "password");
-            var httpRequest = await httpClient.PostAsJsonAsync("api/companies", createCompanyRequest);
+            var httpRequest = await httpClient.PostAsJsonAsync("api/databases", registerDatabaseRequest);
 
             httpRequest.IsSuccessStatusCode.Should().BeTrue();
             

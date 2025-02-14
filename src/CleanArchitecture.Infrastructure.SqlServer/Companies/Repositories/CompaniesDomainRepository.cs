@@ -5,6 +5,6 @@ using CleanArchitecture.Orders.Infrastructure.SqlServer.DbContexts;
 
 namespace CleanArchitecture.Orders.Infrastructure.SqlServer.Companies.Repositories;
 
-public class CompaniesRepository(SystemDbContext context) : BaseRepository<Company, Guid>(context), ICompaniesRepository
+public class CompaniesDomainRepository(SystemDbContext context) : DomainRepository<Company, Guid>(context), ICompaniesDomainRepository
 {
 }

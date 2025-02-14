@@ -1,2 +1,2 @@
-﻿dotnet-ef migrations add InitialMigration -c SystemDbContext -p .\src\CleanArchitecture.Infrastructure.SqlServer\ -s .\src\CleanArchitecture.Api.Host\ -o Migrations\System
-dotnet-ef update database -c SystemDbContext -p .\src\CleanArchitecture.Infrastructure.SqlServer\ -s .\src\CleanArchitecture.Api.Host\
+﻿dotnet ef migrations add InitialMigration -c SystemDbContext -p .\src\CleanArchitecture.Infrastructure.SqlServer\ -s .\src\CleanArchitecture.Api.Host\ -o Migrations\System
+dotnet ef database update -c SystemDbContext -p .\src\CleanArchitecture.Infrastructure.SqlServer\ -s .\src\CleanArchitecture.Api.Host\

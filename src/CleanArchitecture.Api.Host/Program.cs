@@ -27,6 +27,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapCompaniesEndpoints();
+app.MapDatabasesEndpoints();
 
 await app.RunAsync();
 

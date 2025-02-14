@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Orders.Infrastructure.SqlServer.Base;
 
-public abstract class BaseRepository<TEntity, TKey>(DbContext context) : IDomainRepository<TEntity, TKey>
+public abstract class DomainRepository<TEntity, TKey>(DbContext context) : IDomainRepository<TEntity, TKey>
     where TEntity : DomainEntity<TKey>
 {
     
