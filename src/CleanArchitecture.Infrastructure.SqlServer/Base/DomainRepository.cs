@@ -12,8 +12,14 @@ public abstract class DomainRepository<TEntity, TKey>(DbContext context) : IDoma
     {
         return await GetDbSet().ToListAsync(cancellationToken).ConfigureAwait(false);
     }
+    
+    public async Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken)
+    {
+        var entity = await GetDbSet().FindAsync(id, cancellationToken).ConfigureAwait(false);
+        return entity!;
+    }
 
-    public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
+    public async Task<List<TEntity>> GetAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
     {
 
         if (predicate is null)
@@ -24,12 +30,6 @@ public abstract class DomainRepository<TEntity, TKey>(DbContext context) : IDoma
         return await GetDbSet()
             .Where(predicate)
             .ToListAsync(cancellationToken).ConfigureAwait(false);
-    }
-
-    public async Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken)
-    {
-        var entity = await GetDbSet().FindAsync(id, cancellationToken).ConfigureAwait(false);
-        return entity!;
     }
 
     public async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken)

@@ -38,14 +38,14 @@ public class WebApplicationFixture : WebApplicationFactory<Program>, IAsyncLifet
         await DisposeAsync();
     }
     
-    public async Task ExecuteTestOnIsolatedContext(Func<Task> testAction)
+    public async Task ExecuteTestOnIsolatedContext(Func<IServiceProvider, Task> testAction)
     {
         //We can't use the TestDbContext for migrations
         using var serviceScope = Services.CreateScope();
         await using var migrationDbContext = serviceScope.ServiceProvider.GetRequiredService<SystemDbContext>();
         await migrationDbContext.Database.EnsureCreatedAsync();
-
-        await testAction();
+        
+        await testAction(serviceScope.ServiceProvider);
     }
     
 }

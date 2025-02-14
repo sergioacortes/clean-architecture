@@ -14,7 +14,7 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
     public async Task CreateCompanyHandler_ShouldCreateCompany()
     {
 
-        await fixture.ExecuteTestOnIsolatedContext(async () =>
+        await fixture.ExecuteTestOnIsolatedContext(async (_) =>
         {
             var httpClient = fixture.CreateClient();
             var createCompanyRequest = new CreateCompanyRequest("TenantId", "Test Company");
