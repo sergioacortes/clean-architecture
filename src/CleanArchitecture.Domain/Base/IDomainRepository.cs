@@ -9,7 +9,7 @@ public interface IDomainRepository<TEntity, in TKey> where TEntity : DomainEntit
     
     Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken);
 
-    Task<List<TEntity>> GetAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken);
+    Task<List<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken);
 
     Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken);
     
