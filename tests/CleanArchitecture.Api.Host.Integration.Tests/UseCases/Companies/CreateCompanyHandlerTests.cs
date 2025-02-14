@@ -11,7 +11,7 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
 {
 
     [Fact]
-    public async Task CreateCompanyHandler_ShouldCreateCompany()
+    public async Task CreateCompanyHandler_ShouldCreateCompany_With_Default_Database()
     {
 
         await fixture.ExecuteTestOnIsolatedContext(async (_) =>
@@ -30,6 +30,7 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
             company.TenantId.Should().Be(createCompanyRequest.TenantId);
             company.TradeName.Should().NotBeEmpty();
             company.TradeName.Should().Be(createCompanyRequest.TradeName);
+            company.DatabaseId.Should().NotBeEmpty();
 
         });
         

@@ -25,6 +25,9 @@ public class CompanyTests
         var companyName = "Company trade name";
         var company = Company.Create(tenantId, companyName);
         
+        company.Id.Should().NotBeEmpty();
         company.TradeName.Should().Be(companyName);
+        company.DatabaseId.Should().NotBeEmpty();
+
     }
 }
