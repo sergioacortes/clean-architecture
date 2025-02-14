@@ -1,3 +1,4 @@
+using CleanArchitecture.Api.Host.Modules;
 using CleanArchitecture.Orders.Application.Extensions;
 using CleanArchitecture.Orders.Application.UseCases.Companies;
 using CleanArchitecture.Orders.Domain.Companies.Repositories;
@@ -25,19 +26,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/api/companies", async ([FromServices]ICompaniesRepository companiesRepository) =>
-    {
-        var companies = await companiesRepository.GetAllAsync(CancellationToken.None).ConfigureAwait(false);
-        return companies;
-    })
-    .WithName("CompanyGetAll");
-
-app.MapPost("/api/companies", async ([FromServices]IMediator mediator, [FromBody]CreateCompanyRequest request) =>
-    {
-        var response = await mediator.Send(request);
-        return response;
-    })
-    .WithName("CompanyCreate");
+app.MapCompaniesEndpoints();
 
 await app.RunAsync();
 
