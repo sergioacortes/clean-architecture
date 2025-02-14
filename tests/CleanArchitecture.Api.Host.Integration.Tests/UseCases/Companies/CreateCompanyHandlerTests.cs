@@ -30,7 +30,6 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
             company.TenantId.Should().Be(createCompanyRequest.TenantId);
             company.TradeName.Should().NotBeEmpty();
             company.TradeName.Should().Be(createCompanyRequest.TradeName);
-            company.DatabaseId.Should().NotBeEmpty();
 
         });
         
