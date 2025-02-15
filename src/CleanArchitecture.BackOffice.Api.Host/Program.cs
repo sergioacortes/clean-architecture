@@ -26,7 +26,7 @@ app.MapDatabasesEndpoints();
 
 await app.RunAsync();
 
-namespace CleanArchitecture.Api.Host
+namespace CleanArchitecture.BackOffice.Api.Host
 {
     public class Program
     {
