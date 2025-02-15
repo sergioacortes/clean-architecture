@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CleanArchitecture.Api.Host.Modules;
+namespace CleanArchitecture.BackOffice.Api.Host.Modules;
 
 public static class DatabasesMappingExtensions
 {

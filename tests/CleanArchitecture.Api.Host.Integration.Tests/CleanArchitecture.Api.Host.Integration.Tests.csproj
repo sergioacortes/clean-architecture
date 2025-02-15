@@ -3,9 +3,5 @@
     <ItemGroup>
       <ProjectReference Include="..\..\src\CleanArchitecture.Api.Host\CleanArchitecture.Api.Host.csproj" />
     </ItemGroup>
-    
-    <ItemGroup>
-      <PackageReference Include="Respawn" Version="6.2.1" />
-    </ItemGroup>
         
 </Project>

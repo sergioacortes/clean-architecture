@@ -1,10 +1,6 @@
-using CleanArchitecture.Api.Host.Modules;
+﻿using CleanArchitecture.BackOffice.Api.Host.Modules;
 using CleanArchitecture.Orders.Application.Extensions;
-using CleanArchitecture.Orders.Application.UseCases.Companies;
-using CleanArchitecture.Orders.Domain.Companies.Repositories;
 using CleanArchitecture.Orders.Infrastructure.SqlServer.Extensions;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,11 +22,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapCompaniesEndpoints();
+app.MapDatabasesEndpoints();
 
 await app.RunAsync();
 
-namespace CleanArchitecture.Api.Host
+namespace CleanArchitecture.BackOffice.Api.Host
 {
     public class Program
     {
