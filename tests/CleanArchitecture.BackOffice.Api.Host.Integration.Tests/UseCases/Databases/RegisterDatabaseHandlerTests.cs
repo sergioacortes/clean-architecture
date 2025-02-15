@@ -1,14 +1,11 @@
 ﻿using System.Net.Http.Json;
 using CleanArchitecture.Orders.Application.UseCases.Databases.RegisterDatabase;
 using CleanArchitecture.Orders.Domain.Databases.Entities;
-using CleanArchitecture.Orders.Domain.Databases.Repositories;
-using CleanArchitecture.Orders.Infrastructure.SqlServer.DbContexts;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace CleanArchitecture.Api.Host.Integration.Tests.UseCases.Databases;
+namespace CleanArchitecture.BackOffice.Api.Host.Integration.Tests.UseCases.Databases;
 
 [Collection(nameof(WebApplicationFixture))]
 public class RegisterDatabaseHandlerTests(WebApplicationFixture fixture) : IClassFixture<WebApplicationFixture>, IAsyncLifetime

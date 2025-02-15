@@ -30,6 +30,7 @@
     <ItemGroup Condition="'$(MSBuildProjectName.Contains(`.Integration.Tests`))'">
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.1" />
         <PackageReference Include="Testcontainers.MsSql" Version="4.1.0" />
+        <PackageReference Include="Respawn" Version="6.2.1" />
     </ItemGroup>
 
 </Project>
