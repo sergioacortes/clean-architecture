@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     
+    <PropertyGroup>
+      <RootNamespace>CleanArchitecture.Orders.Application</RootNamespace>
+    </PropertyGroup>
+    
     <ItemGroup>
       <ProjectReference Include="..\CleanArchitecture.Infrastructure.SqlServer\CleanArchitecture.Infrastructure.SqlServer.csproj" />
       <ProjectReference Include="..\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj" />

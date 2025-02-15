@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infrastructure", "src\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj", "{6773E9BB-C151-4D18-AE12-42C68AE197B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Orders.Application", "src\CleanArchitecture.Orders.Application\CleanArchitecture.Orders.Application.csproj", "{4C86E7E6-D184-4C96-9448-89F91A81078A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Application", "src\CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{4C86E7E6-D184-4C96-9448-89F91A81078A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{575A5B4C-7231-4A11-A7AB-3B8A40EE5049}"
 	ProjectSection(SolutionItems) = preProject
