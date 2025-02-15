@@ -9,7 +9,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\CleanArchitecture.Orders.Application\CleanArchitecture.Orders.Application.csproj" />
+      <ProjectReference Include="..\CleanArchitecture.Application\CleanArchitecture.Application.csproj" />
     </ItemGroup>
 
     <ItemGroup>
