@@ -11,7 +11,7 @@ using Xunit;
 namespace CleanArchitecture.Api.Host.Integration.Tests.UseCases.Databases;
 
 [Collection(nameof(WebApplicationFixture))]
-public class RegisterDatabaseHandlerTests(WebApplicationFixture fixture) : IClassFixture<WebApplicationFixture>
+public class RegisterDatabaseHandlerTests(WebApplicationFixture fixture) : IClassFixture<WebApplicationFixture>, IAsyncLifetime
 {
     
     [Fact]
@@ -50,4 +50,7 @@ public class RegisterDatabaseHandlerTests(WebApplicationFixture fixture) : IClas
         
     }
 
+    public Task InitializeAsync() => Task.CompletedTask;
+
+    public Task DisposeAsync() => fixture.ResetDatabase();
 }
