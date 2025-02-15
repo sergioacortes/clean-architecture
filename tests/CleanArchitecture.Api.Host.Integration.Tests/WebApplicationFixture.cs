@@ -40,12 +40,19 @@ public class WebApplicationFixture : WebApplicationFactory<Program>, IAsyncLifet
     public async Task InitializeAsync()
     {
         await _sqlServerContainer.Container.StartAsync();
+
+        SystemDbContext = Services.CreateScope().ServiceProvider.GetRequiredService<SystemDbContext>();
+        
         _respawner = await Respawner.CreateAsync(_sqlServerContainer.Container.GetConnectionString(), new RespawnerOptions()
         {
             DbAdapter = DbAdapter.SqlServer,
             TablesToIgnore = [ new Table("__EFMigrationsHistory") ]
         });
-        SystemDbContext = Services.CreateScope().ServiceProvider.GetRequiredService<SystemDbContext>();
+    }
+
+    public async Task ResetDatabase()
+    {
+        await _respawner.ResetAsync(_sqlServerContainer.Container.GetConnectionString()).ConfigureAwait(false);
     }
     
     public override async ValueTask DisposeAsync()
