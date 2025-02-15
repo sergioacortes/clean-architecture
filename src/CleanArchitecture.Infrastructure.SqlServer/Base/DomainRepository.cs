@@ -32,6 +32,25 @@ public abstract class DomainRepository<TEntity, TKey>(DbContext context) : IDoma
             .Where(filter)
             .ToListAsync(cancellationToken).ConfigureAwait(false);
     }
+    
+    public async Task<List<TResult>> GetAsync<TResult>(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TResult>> selector, CancellationToken cancellationToken)
+    {
+
+        if (filter is null)
+        {
+            throw new ArgumentNullException(nameof(filter), $"The argument {nameof(filter)} cannot be null.");
+        }
+
+        if (selector is null)
+        {
+            throw new ArgumentNullException(nameof(selector), $"The argument {nameof(selector)} cannot be null.");
+        }
+
+        return await GetDbSet()
+            .Where(filter)
+            .Select(selector)
+            .ToListAsync(cancellationToken).ConfigureAwait(false);
+    }
 
     public async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken)
     {

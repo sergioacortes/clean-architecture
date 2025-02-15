@@ -11,6 +11,9 @@ public interface IDomainRepository<TEntity, in TKey> where TEntity : DomainEntit
 
     Task<List<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken);
 
+    Task<List<TResult>> GetAsync<TResult>(Expression<Func<TEntity, bool>> filter,
+        Expression<Func<TEntity, TResult>> selector, CancellationToken cancellationToken);
+
     Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken);
     
     void Update(TEntity entity);

@@ -10,7 +10,7 @@ public class CreateCompanyHandler(ICompaniesDomainRepository companiesDomainRepo
     public async Task<CreateCompanyResponse> Handle(CreateCompanyRequest request, CancellationToken cancellationToken)
     {
         var currentDatabaseId = await GetCurrentDatabase(cancellationToken).ConfigureAwait(false);
-        var company = Company.Create(request.TenantId, request.TradeName, Guid.NewGuid());
+        var company = Company.Create(request.TenantId, request.TradeName, currentDatabaseId);
         await companiesDomainRepository.AddAsync(company, cancellationToken).ConfigureAwait(false);
         await companiesDomainRepository.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         return new CreateCompanyResponse(company.Id, company.TenantId, company.TradeName); 
@@ -18,8 +18,9 @@ public class CreateCompanyHandler(ICompaniesDomainRepository companiesDomainRepo
 
     private async Task<Guid> GetCurrentDatabase(CancellationToken cancellationToken)
     {
-        
-        var databases = await databasesDomainRepository.GetAsync(r => r.IsActive, cancellationToken).ConfigureAwait(false);
+
+        var databases = await databasesDomainRepository
+            .GetAsync(r => r.IsActive, entity => new { entity.Id }, cancellationToken).ConfigureAwait(false);
         var currentDatabase = databases.First();
 
         return currentDatabase.Id;
