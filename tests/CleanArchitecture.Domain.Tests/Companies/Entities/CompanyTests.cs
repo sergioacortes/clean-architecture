@@ -8,13 +8,15 @@ public class CompanyTests
 {
 
     [Theory]
-    [InlineData("", ""),
-     InlineData(null, ""),
-     InlineData("", null),
-     InlineData(null, null)]
-    public void Company_Should_Not_Be_Able_To_Created(string tenantId, string companyName)
+    [InlineData("", "", "d9ccbda3-60bd-4a22-8626-000000000001"),
+     InlineData(null, "", "d9ccbda3-60bd-4a22-8626-000000000001"),
+     InlineData("", null, "d9ccbda3-60bd-4a22-8626-000000000001"),
+     InlineData(null, null, "d9ccbda3-60bd-4a22-8626-000000000001"),
+     InlineData("TenantId", "Company name", "00000000-0000-0000-0000-000000000000")
+    ]
+    public void Company_Should_Not_Be_Able_To_Created(string tenantId, string companyName, Guid databaseId)
     {
-        Assert.Throws<ArgumentNullException>(() => Company.Create(tenantId, companyName));
+        Assert.Throws<ArgumentNullException>(() => Company.Create(tenantId, companyName, databaseId));
     }
     
     [Fact]
@@ -23,8 +25,12 @@ public class CompanyTests
 
         var tenantId = "TenantId";
         var companyName = "Company trade name";
-        var company = Company.Create(tenantId, companyName);
+        var databaseId = Guid.NewGuid();
+        var company = Company.Create(tenantId, companyName, databaseId);
         
+        company.Id.Should().NotBeEmpty();
         company.TradeName.Should().Be(companyName);
+        company.DatabaseId.Should().NotBeEmpty();
+
     }
 }

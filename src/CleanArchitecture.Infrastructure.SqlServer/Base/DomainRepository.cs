@@ -1,10 +1,11 @@
 ﻿using System.Linq.Expressions;
 using CleanArchitecture.Orders.Domain.Base;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace CleanArchitecture.Orders.Infrastructure.SqlServer.Base;
 
-public abstract class BaseRepository<TEntity, TKey>(DbContext context) : IDomainRepository<TEntity, TKey>
+public abstract class DomainRepository<TEntity, TKey>(DbContext context) : IDomainRepository<TEntity, TKey>
     where TEntity : DomainEntity<TKey>
 {
     
@@ -12,24 +13,24 @@ public abstract class BaseRepository<TEntity, TKey>(DbContext context) : IDomain
     {
         return await GetDbSet().ToListAsync(cancellationToken).ConfigureAwait(false);
     }
-
-    public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
-    {
-
-        if (predicate is null)
-        {
-            throw new ArgumentNullException(nameof(predicate), $"The argument {nameof(predicate)} cannot be null.");
-        }
-
-        return await GetDbSet()
-            .Where(predicate)
-            .ToListAsync(cancellationToken).ConfigureAwait(false);
-    }
-
+    
     public async Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken)
     {
         var entity = await GetDbSet().FindAsync(id, cancellationToken).ConfigureAwait(false);
         return entity!;
+    }
+
+    public async Task<List<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken)
+    {
+
+        if (filter is null)
+        {
+            throw new ArgumentNullException(nameof(filter), $"The argument {nameof(filter)} cannot be null.");
+        }
+
+        return await GetDbSet()
+            .Where(filter)
+            .ToListAsync(cancellationToken).ConfigureAwait(false);
     }
 
     public async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken)
@@ -41,6 +42,20 @@ public abstract class BaseRepository<TEntity, TKey>(DbContext context) : IDomain
     public void Update(TEntity entity)
     {
        GetDbSet().Update(entity);
+    }
+
+    public async Task ExecuteUpdateAsync(Expression<Func<TEntity, bool>> filter, Expression<Func<SetPropertyCalls<TEntity>, SetPropertyCalls<TEntity>>> setPropertyCalls,
+        CancellationToken cancellationToken = default)
+    {
+
+        if (filter is null)
+        {
+            throw new ArgumentNullException(nameof(filter), $"The argument {nameof(filter)} cannot be null.");
+        }
+        
+        await GetDbSet()
+            .Where(filter)
+            .ExecuteUpdateAsync(setPropertyCalls, cancellationToken).ConfigureAwait(false);
     }
 
     public async Task DeleteAsync(TKey id, CancellationToken cancellationToken)

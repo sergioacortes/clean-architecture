@@ -3,6 +3,6 @@ using CleanArchitecture.Orders.Domain.Companies.Entities;
 
 namespace CleanArchitecture.Orders.Domain.Companies.Repositories;
 
-public interface ICompaniesRepository : IDomainRepository<Company, Guid>
+public interface ICompaniesDomainRepository : IDomainRepository<Company, Guid>
 {
 }

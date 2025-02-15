@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CleanArchitecture.Orders.Infrastructure.SqlServer.EntityTypeConfigurations.Companies;
+namespace CleanArchitecture.Orders.Infrastructure.SqlServer.Companies.EntityTypeConfigurations;
 
 public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<Company>
 {
@@ -14,7 +14,6 @@ public class CompanyEntityTypeConfiguration : IEntityTypeConfiguration<Company>
             .HasColumnName("CompanyId")
             .IsRequired();
         builder.Property(p => p.TradeName)
-            .HasColumnName("TradeName")
             .IsRequired();
     }
 }
