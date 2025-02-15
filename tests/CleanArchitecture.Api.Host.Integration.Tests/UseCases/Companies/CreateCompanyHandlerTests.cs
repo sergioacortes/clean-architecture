@@ -7,14 +7,12 @@ using Xunit;
 namespace CleanArchitecture.Api.Host.Integration.Tests.UseCases.Companies;
 
 [Collection(nameof(WebApplicationFixture))]
-public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFixture<WebApplicationFixture>
+public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFixture<WebApplicationFixture>, IAsyncLifetime
 {
 
     [Fact(DisplayName = "Company should not be created if there is not database active")]
     public async Task CreateCompanyHandler_ShouldNotCreateCompany_If_theres_not_active_database()
     {
-
-        await fixture.ResetDatabase();
         
         var httpClient = fixture.CreateClient();
         var createCompanyRequest = new CreateCompanyRequest("KO001", "Test Company");
@@ -27,8 +25,6 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
     [Fact(DisplayName = "Company should be created with active database")]
     public async Task CreateCompanyHandler_ShouldCreateCompany_With_active_Database()
     {
-        
-        await fixture.ResetDatabase();
         
         var cancellationToken = new CancellationTokenSource().Token;
         
@@ -58,5 +54,8 @@ public class CreateCompanyHandlerTests(WebApplicationFixture fixture) : IClassFi
         company!.DatabaseId.Should().NotBeEmpty();
         
     }
-    
+
+    public Task InitializeAsync() => Task.CompletedTask;
+
+    public Task DisposeAsync() => fixture.ResetDatabase();
 }
