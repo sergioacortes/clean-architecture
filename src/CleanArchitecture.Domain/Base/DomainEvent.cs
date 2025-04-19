@@ -1,6 +1,8 @@
-﻿namespace CleanArchitecture.Domain.Base;
+﻿using MediatR;
 
-public abstract class DomainEvent(Guid id, Guid aggregateId)
+namespace CleanArchitecture.Domain.Base;
+
+public abstract class DomainEvent(Guid id, Guid aggregateId) : INotification
 {
     public Guid Id { get; } = id;
     public Guid AggregateId { get; } = aggregateId;
