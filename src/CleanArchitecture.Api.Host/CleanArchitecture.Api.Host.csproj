@@ -13,5 +13,9 @@
             <DependentUpon>appsettings.json</DependentUpon>
         </Content>
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj" />
+    </ItemGroup>
     
 </Project>

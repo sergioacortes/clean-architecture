@@ -12,3 +12,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 await app.RunAsync();
+
+namespace CleanArchitecture.Api.Host
+{
+
+    public class Program
+    {
+    }
+
+}
