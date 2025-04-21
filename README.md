@@ -9,3 +9,11 @@ Projects
 - Infrastructure
 
 
+## Migrations
+
+Execute the following commands to apply the database migrations before start the project.
+
+```
+dotnet ef migrations add InitialMigration -c SystemDbContext -p .\src\CleanArchitecture.Infrastructure\ -s .\src\CleanArchitecture.Api.Host\ -o Migrations\System
+dotnet ef database update -c SystemDbContext -p .\src\CleanArchitecture.Infrastructure\ -s .\src\CleanArchitecture.Api.Host\
+```

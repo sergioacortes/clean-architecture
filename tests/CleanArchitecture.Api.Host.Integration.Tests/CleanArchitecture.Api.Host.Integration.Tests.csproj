@@ -1,2 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CleanArchitecture.Api.Host\CleanArchitecture.Api.Host.csproj" />
+  </ItemGroup>
 </Project>
