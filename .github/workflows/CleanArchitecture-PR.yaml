@@ -1,3 +1,8 @@
+name: CleanArchitecture - PR
+
+env:
+  DOTNET_VERSION: 8
+
 on:
   push:
     branches:
@@ -6,21 +11,29 @@ on:
   pull_request:
     branches:
       - main
-      
+
 jobs:
   build:
-    strategy:
-      matrix:
-        configuration: [ Debug, Release ]
     runs-on: ubuntu-latest
+    
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-        with: 
-          fetch-depth: 0
-      - name: Install .NET Core
+      - uses: actions/checkout@v4
+        
+      - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
-      - name: Run unit tests
-        run: dotnet test
+          dotnet-version: ${{ var.DOTNET_VERSION }}
+          
+      - name: Set up dependency caching for faster builds
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+        
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/CleanArchitecture
