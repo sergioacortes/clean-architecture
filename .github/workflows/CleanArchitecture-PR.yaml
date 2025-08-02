@@ -1,7 +1,7 @@
 name: CleanArchitecture - PR
 
 env:
-  DOTNET_VERSION: 8
+  DOTNET_VERSION: 8.0.x
 
 on:
   push:
