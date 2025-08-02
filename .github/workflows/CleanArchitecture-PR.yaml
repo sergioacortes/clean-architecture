@@ -37,3 +37,4 @@ jobs:
         
       # - name: dotnet publish
       #   run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/CleanArchitecture
+      
