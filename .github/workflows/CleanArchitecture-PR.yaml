@@ -32,8 +32,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: dotnet restore
+        run: dotnet restore CleanArchitecture.sln
         
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/CleanArchitecture
+      # - name: dotnet publish
+      #   run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/CleanArchitecture
