@@ -16,12 +16,14 @@ public abstract class DomainEntity<TType>
     
     public DateTime CreatedAt { get; private set; }
     
+    public DateTime UpdatedAt { get; private set; }
+    
     public long Sequence { get; private set; }
 
     internal void AddDomainEvent(DomainEvent domainEvent) => 
         DomainEvents.Add(domainEvent);
     
-    public List<DomainEvent> GetDomainEvents() => 
-        DomainEvents;
+    public IReadOnlyList<DomainEvent> GetDomainEvents() => 
+        DomainEvents.AsReadOnly();
     
 }
