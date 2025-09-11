@@ -42,8 +42,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".misc", ".misc", "{BCD1C45D-A36A-494A-B28A-9B8C09D5E413}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Directory.Build.Props = Directory.Build.Props
+		Directory.Build.props = Directory.Build.props
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{A9C9F36A-BF87-4E11-84EE-70F297333F8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{6D59481D-1C93-4404-A29B-1D2E32B73ADC}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\CleanArchitecture-PR.yaml = .github\workflows\CleanArchitecture-PR.yaml
 	EndProjectSection
 EndProject
 Global
@@ -68,6 +75,7 @@ Global
 		{78DB753F-FD32-4A45-A9D0-C35EA5C68C8D} = {FC7C5B31-7F4B-49CC-980F-E197F7E09F35}
 		{DDCAC859-4268-48B6-B5BB-A2C029579EEF} = {27B82D00-1131-49D2-8349-BBF0FC86C97B}
 		{20BD8AE7-1616-406B-8FEA-CA5203471004} = {9B86CE4A-8F20-4811-B9BF-723DE932C979}
+		{6D59481D-1C93-4404-A29B-1D2E32B73ADC} = {A9C9F36A-BF87-4E11-84EE-70F297333F8D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{59A2A24E-5B9A-4B3A-B2FA-3A666689A5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
